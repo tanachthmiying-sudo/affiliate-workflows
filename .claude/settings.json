@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python src/workflows/*.py*)",
+      "Bash(python run_workflow.py*)",
+      "Bash(python3 *)",
+      "Bash(pip install*)",
+      "Bash(lark-cli auth status*)",
+      "Bash(lark-cli base +table-list*)",
+      "Bash(lark-cli base +field-list*)",
+      "Bash(lark-cli base +field-create*)",
+      "Bash(lark-cli base +record-list*)",
+      "Bash(lark-cli api POST /open-apis/bitable/*)",
+      "Bash(rm -f ./batch_update.json)",
+      "Read(data/**)",
+      "Read(reports/**)",
+      "Read(.claude/skills/**)",
+      "Write(reports/**)",
+      "Write(./batch_update.json)",
+      "Read(config.yaml)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[Claude Code] Workflow execution logged at '$(date)"
+          }
+        ]
+      }
+    ]
+  }
+}

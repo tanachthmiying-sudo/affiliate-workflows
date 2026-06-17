@@ -1,0 +1,38 @@
+# ──────────────────────────────────────────────────────────────
+# Migo Affiliate Workflows — Configuration Template
+# Copy to config.yaml and fill in your values.
+# Never commit config.yaml to version control.
+# ──────────────────────────────────────────────────────────────
+
+# ── Feishu App Credentials ────────────────────────────────────
+# Create at: https://open.feishu.cn/app → Create App → Credentials
+feishu_app_id: "cli_REPLACE_ME"
+feishu_app_secret: "REPLACE_ME"
+
+# ── Feishu Bot Webhook ────────────────────────────────────────
+# Create a custom bot in any Feishu group → Settings → Bots → Add Custom Bot
+feishu_bot_webhook: "https://open.feishu.cn/open-apis/bot/v2/hook/REPLACE_ME"
+
+# ── AFS Base (Feishu Bitable) ─────────────────────────────────
+# The app_token is in the URL of your Bitable:
+# https://migo.feishu.cn/base/[APP_TOKEN]?table=[TABLE_ID]
+afs_base_token: "REPLACE_ME_BASE_APP_TOKEN"
+
+# ── Table IDs ─────────────────────────────────────────────────
+# Open each table in Feishu Base → the URL contains ?table=tbl_xxxxx
+creator_pool_table_id: "tblREPLACE_creator_pool"
+video_table_id:        "tblREPLACE_video_status"
+ls_schedule_table_id:  "tblREPLACE_ls_schedule"
+campaign_summary_table_id: "tblREPLACE_campaign_summary"
+leads_table_id:        "tblREPLACE_leads"
+trend_table_id:        "tblREPLACE_trend"
+insight_table_id:      "tblREPLACE_insights"
+
+# ── Workflow 4: Lead Qualification Thresholds ─────────────────
+lead_min_followers: 10000          # Minimum follower count
+lead_min_gmv_30d: 500              # Minimum GMV last 30 days (THB)
+lead_min_engagement_rate: 2.0      # Minimum engagement rate %
+
+# ── General Settings ──────────────────────────────────────────
+timezone: "Asia/Bangkok"
+default_campaign_id: "CAMP_JUN"    # Used when no campaign context is provided

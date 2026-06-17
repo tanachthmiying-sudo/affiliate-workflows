@@ -1,0 +1,24 @@
+# Credentials — never commit these
+config.yaml
+.env
+
+# TikTok export files — often contain creator PII
+data/samples/*.csv
+data/samples/*.xlsx
+data/samples/*.json
+
+# Generated reports
+reports/*.html
+reports/*.png
+
+# Temp files the skill creates and cleans up
+batch_update.json
+feishu_auth_qr.png
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
