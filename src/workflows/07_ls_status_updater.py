@@ -347,11 +347,15 @@ def run(
         return {}
 
     # ── 6. Detect Feishu field names ──────────────────────────
-    sample_fields = raw_records[0]["fields"]
-    print(f"[WF7] Feishu fields: {list(sample_fields.keys())}")
+    # Use full field-list (not sample record keys) so empty columns are included
+    field_list_data = _lark(["base", "+field-list",
+                              "--base-token", BASE_TOKEN,
+                              "--table-id", table_id])
+    all_field_names = [f["name"] for f in field_list_data["data"]["fields"]]
+    print(f"[WF7] Feishu fields: {all_field_names}")
 
     def _find_feishu_field(candidates):
-        fl = {k.strip().lower(): k for k in sample_fields}
+        fl = {k.strip().lower(): k for k in all_field_names}
         for c in candidates:
             if c.strip().lower() in fl:
                 return fl[c.strip().lower()]
