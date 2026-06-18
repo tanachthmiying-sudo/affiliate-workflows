@@ -361,7 +361,8 @@ def run(
     f_from    = _find_feishu_field(["(from) ls date", "from ls date", "ls start date", "start date"])
     f_to      = _find_feishu_field(["(to)ls date", "(to) ls date", "to ls date", "ls end date", "end date"])
     f_status  = _find_feishu_field(["status"])
-    f_ls_gmv  = _find_feishu_field(["ls gmv", "ls_gmv", "gmv"])
+    f_ls_gmv      = _find_feishu_field(["ls gmv", "ls_gmv", "gmv"])
+    f_ls_streams  = _find_feishu_field(["affiliate live streams", "live streams", "ls streams"])
 
     missing_fields = []
     if not f_creator: missing_fields.append("Creators ID")
@@ -376,6 +377,8 @@ def run(
     print(f"[WF7] Fields → creator='{f_creator}'  from='{f_from}'  to='{f_to}'  status='{f_status}'")
     if f_ls_gmv and update_gmv:
         print(f"[WF7] Will also update GMV field: '{f_ls_gmv}'")
+    if f_ls_streams:
+        print(f"[WF7] Will also update streams field: '{f_ls_streams}'")
 
     # ── 7. Match and build updates ────────────────────────────
     updates      = []
@@ -423,6 +426,8 @@ def run(
         update_fields: Dict[str, Any] = {f_status: "Success"}
         if update_gmv and f_ls_gmv:
             update_fields[f_ls_gmv] = live_gmv
+        if f_ls_streams:
+            update_fields[f_ls_streams] = live_streams
 
         updates.append({"record_id": record_id, "fields": update_fields})
         matched.append({
