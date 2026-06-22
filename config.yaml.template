@@ -6,8 +6,8 @@
 
 # ── Feishu App Credentials ────────────────────────────────────
 # Create at: https://open.feishu.cn/app → Create App → Credentials
-feishu_app_id: "cli_REPLACE_ME"
-feishu_app_secret: "REPLACE_ME"
+feishu_app_id: "cli_aaa26041db3a5bfd"
+feishu_app_secret: "FSi7XIPnwKWmJD1307Qojhf6vWjPnwQU"
 
 # ── Feishu Bot Webhook ────────────────────────────────────────
 # Create a custom bot in any Feishu group → Settings → Bots → Add Custom Bot
@@ -16,7 +16,7 @@ feishu_bot_webhook: "https://open.feishu.cn/open-apis/bot/v2/hook/REPLACE_ME"
 # ── AFS Base (Feishu Bitable) ─────────────────────────────────
 # The app_token is in the URL of your Bitable:
 # https://migo.feishu.cn/base/[APP_TOKEN]?table=[TABLE_ID]
-afs_base_token: "REPLACE_ME_BASE_APP_TOKEN"
+afs_base_token: "HTP0baeKhavuSksNvqjc2lEenAh"
 
 # ── Table IDs ─────────────────────────────────────────────────
 # Open each table in Feishu Base → the URL contains ?table=tbl_xxxxx
